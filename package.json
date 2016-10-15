@@ -1,0 +1,30 @@
+{
+  "name": "DocEditor",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "babel-jest": "^16.0.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-preset-stage-2": "^6.17.0",
+    "jest": "^16.0.1",
+    "jest-cli": "^16.0.1",
+    "react-addons-update": "^15.3.2",
+    "react-scripts": "0.6.1"
+  },
+  "dependencies": {
+    "react": "^15.4.0-rc.4",
+    "react-dom": "^15.4.0-rc.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "eject": "react-scripts eject"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}

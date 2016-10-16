@@ -33,7 +33,7 @@ class ArrayAttribute extends Component {
 
 		openArray = (<div className="attrChildren">
 			{ attrs }
-			<AttributeCreator type="element" parent={ this.props.value } attrkey={ keys.length } onChange={this.props.onChange}/>
+			<AttributeCreator type="element" parent={ this.props.value } attrkey={ keys.length }/>
 			</div>
 		)
 

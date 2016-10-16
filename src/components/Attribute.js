@@ -30,13 +30,16 @@ class Attribute extends Component {
 	}
 
 	handleRemove(e) {
-
-		/* if( this.props.parent.constructor == Array )
+		e.preventDefault()
+		if( this.props.parent.constructor == Array )
 			this.props.parent.splice( this.props.attrkey, 1 )
-			else */
-		
-			let newDocument = update(this.props.parent, {[this.props.attrkey]: {$set: null}})
-  	this.props.onChange(newDocument)
+		else
+			this.props.parent.remove( this.props.attrkey )
+	}
+
+	shouldComponentUpdate( nextProps, nextState ){
+		return nextProps.value != this.props.value || 
+          nextProps.parent != this.props.parent
 	}
 }
 

@@ -30,14 +30,13 @@ class ObjectAttribute extends Component {
 					original={this.props.original[attr]}
 					key     ={attr}
 					attrkey ={attr}
-					onChange={this.props.onChange}
 				/>
 			)
 		}
 
 		openHash = (<div className="attrChildren">
 				{ attrs }
-				<AttributeCreator type="attribute" parent={ this.props.value } onChange={this.props.onChange}/>
+				<AttributeCreator type="attribute" parent={ this.props.value } />
 			</div>
 		)
 

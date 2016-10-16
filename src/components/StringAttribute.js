@@ -21,15 +21,6 @@ class StringAttribute extends Component {
 		this.handleKeyDown = this.handleKeyDown.bind(this)
 	}
 
-	updateValue(e) {
-		this.setState({value: e.target.value, modified: e.target.value != this.props.value });
-	}
-
-  handleChange(e) {
-  	let value = e.target.value
-  	this.props.onChange(value)
-	}
-
 	render() {
 		var className = 'stringAttr'
 		if( this.state.modified )
@@ -68,14 +59,16 @@ class StringAttribute extends Component {
 		this.setState({editing: false})
 	}
 
-
-	handleKeyDown(e) {
-		if( e.which == 13 )
-			this.setValue()
+	updateValue(e){
+		this.setState({value: e.target.value, modified: e.target.value != this.props.value });
 	}
 
-	toggleEditing() {
-		this.setState({ editing: !this.state.editing })
+	handleKeyDown(e){
+		if( e.which == 13 )
+			this.setValue();
+	}
+	toggleEditing(){
+		this.setState({ editing: !this.state.editing });
 	}
 }
 

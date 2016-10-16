@@ -1,8 +1,8 @@
 var jsondoc = {
 	hola: 'amigo',
-	adios:'enemigo',
+	adios:'enemigo' /*,
 	obj: { hi: 'man', bye: 'dude' },
-	arr: ['a', 'b', {c: 1}, 'd']
+	arr: ['a', 'b', {c: 1}, 'd'] */
 }
 
 export default jsondoc

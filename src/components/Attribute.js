@@ -7,11 +7,11 @@
  */
 import React, {Component} from 'react'
 import createAttribute from './createAttribute'
+import update from 'react-addons-update'
 
 class Attribute extends Component {
 	constructor() {
 		super()
-		this.state = {}
 		this.handleRemove = this.handleRemove.bind(this)
 	}
 
@@ -30,16 +30,13 @@ class Attribute extends Component {
 	}
 
 	handleRemove(e) {
-		e.preventDefault()
-		if( this.props.parent.constructor == Array )
-			this.props.parent.splice( this.props.attrkey, 1 )
-		else
-			this.props.parent.remove( this.props.attrkey )
-	}
 
-	shouldComponentUpdate( nextProps, nextState ) {
-		return nextProps.value != this.props.value || 
-          nextProps.parent != this.props.parent
+		/* if( this.props.parent.constructor == Array )
+			this.props.parent.splice( this.props.attrkey, 1 )
+			else */
+		
+			let newDocument = update(this.props.parent, {[this.props.attrkey]: {$set: null}})
+  	this.props.onChange(newDocument)
 	}
 }
 

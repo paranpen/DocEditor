@@ -7,9 +7,15 @@ describe("json doc update test", () => {
     expect(store.hola).toBe('hola')
   })
 
-  it("update", () => {
-    let obj = {a: 5, b: 3}
-    let newObj = update(obj, {$merge: {b: 6, c: 7}})
-    expect(newObj).toEqual({a: 5, b: 6, c: 7})
+  it("remove the first attribute", () => {
+		let attrs = []
+		for( let attr in jsondoc ){
+			attrs.push(attr)
+		}
+
+    let newObj = update(jsondoc, {$set: {[attrs[0]]: null}})
+    expect(newObj[attrs[0]]).toEqual(null)
   })
+
 })
+

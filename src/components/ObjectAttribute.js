@@ -25,23 +25,24 @@ class ObjectAttribute extends Component {
 		for( var attr in this.props.value ){
 			attrs.push(
 				<Attribute
-					parent={ this.props.value }
-					value={this.props.value[attr]}
+					parent  ={this.props.value}
+					value   ={this.props.value[attr]}
 					original={this.props.original[attr]}
-					key={ attr }
-					attrkey={ attr }
+					key     ={attr}
+					attrkey ={attr}
+					onChange={this.props.onChange}
 				/>
 			)
 		}
 
 		openHash = (<div className="attrChildren">
 				{ attrs }
-				<AttributeCreator type="attribute" parent={ this.props.value } />
+				<AttributeCreator type="attribute" parent={ this.props.value } onChange={this.props.onChange}/>
 			</div>
 		)
 
 		return (<span className={ className }>
-				<span onClick={ this.toggleEditing } className="hashToggle">Map [{ keys.length }]</span>
+				<span onClick={ this.toggleEditing } className="hashToggle">Attribute [{ keys.length }]</span>
 				{openHash}
 			</span>
 		)

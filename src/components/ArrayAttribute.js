@@ -12,7 +12,10 @@ import AttributeCreator from './AttributeCreator'
 class ArrayAttribute extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { editing: false }
+		this.state = {
+			editing: false
+		}
+		this.toggleEditing = this.toggleEditing.bind(this)
 	}
 	
 	render() {

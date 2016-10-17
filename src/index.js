@@ -7,7 +7,12 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Freezer from 'freezer-js'
 import DocEditor from './components/DocEditor'
+import jsonDocument from './docModels/jsonDocument'
+
+/* get the JSON document and make it immutable by Freezer */
+var freezer = new Freezer({jsondoc: jsonDocument})
 
 ReactDOM.render(
   <div>
@@ -20,7 +25,7 @@ ReactDOM.render(
         You can add, delete <code>Attribute</code> and edit its <code>Value</code>.
       </p>
     </div>
-    <DocEditor/>
+    <DocEditor store={freezer} original={freezer.get()}/>
   </div>
   , document.getElementById('root')
 )

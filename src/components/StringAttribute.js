@@ -36,17 +36,15 @@ class StringAttribute extends Component {
 
 	componentDidUpdate( prevProps, prevState ) {
 		if( this.state.editing && ! prevState.editing ){
-			var node = this.refs.input()
-			node.focus()
-			node.value = node.value
+			this.refs.input.focus()
+			this.setState({value: this.refs.input.value})
 		}
 	}
 
 	componentDidMount() {
 		if( this.state.editing ){
-			var node = this.refs.input()
-			node.focus()
-			node.value = node.value
+			this.refs.input.focus()
+			this.setState({value: this.refs.input.value})
 		}
 	}
 

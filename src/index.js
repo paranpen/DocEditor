@@ -18,8 +18,8 @@ ReactDOM.render(
   <div>
     <div className="App">
       <div className="App-header">
-        <h2>JSON Document Editor & State Manager v0.1</h2>
-        <h3>(Each element of Document is scoped to its own Component)</h3>
+        <h2>JSON Document Editor v0.1</h2>
+        <h3>(State Manangement with freezer-js)</h3>
       </div>
       <p className="App-intro">
         You can add, delete <code>Attribute</code> and edit its <code>Value</code>.

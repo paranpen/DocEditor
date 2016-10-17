@@ -4,14 +4,15 @@
  * @param  {Mixed} value The value of the attribute.
  * @param {Mixed} original The value of the attibute in the original json to highlight the changes.
  * @param {FreezerNode} parent The parent node to notify attribute updates.
+ * State: None
+ * TEST if it refresh the element after a attribute is deleted
  */
 import React, {Component} from 'react'
 import createAttribute from './createAttribute'
-import update from 'react-addons-update'
 
 class Attribute extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.handleRemove = this.handleRemove.bind(this)
 	}
 
@@ -29,6 +30,7 @@ class Attribute extends Component {
 		)
 	}
 
+	/* Event Handler */
 	handleRemove(e) {
 		e.preventDefault()
 		if( this.props.parent.constructor == Array )

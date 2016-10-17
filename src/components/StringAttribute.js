@@ -3,16 +3,18 @@
  * @param  {string} value The value of the string.
  * @param  {Mixed} original The value of the component it the original json.
  * @param {FreezerNode} parent The parent node to let the string component update its value.
+ * State: editing, 
+ * TEST if it refresh the element after a attribute is deleted
  */
 import React, { Component } from 'react'
 
 // var StringAttribute = React.createClass({
 class StringAttribute extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
-			editing: false,
-			value: '',
+			editing: !this.props.value,
+			value: this.props.value,
 			modified: false
 		}
 		this.setEditMode   = this.setEditMode.bind(this)
@@ -27,14 +29,14 @@ class StringAttribute extends Component {
 			className = 'modified'
 
 		if( !this.state.editing )
-			return <span onClick={ this.setEditMode } className={ className }>{ this.props.value }</span>
+			return <span onClick={this.setEditMode} className={className}>{this.props.value}</span>
 
-		return <input value={ this.props.value } onChange={ this.updateValue } onBlur={ this.setValue } ref="input" onKeyDown={this.handleKeyDown} />
+		return <input value={this.props.value} onChange={this.updateValue} onBlur={this.setValue} ref="input" onKeyDown={this.handleKeyDown}/>
 	}
 
 	componentDidUpdate( prevProps, prevState ) {
 		if( this.state.editing && ! prevState.editing ){
-			var node = this.refs.input.getDOMNode()
+			var node = this.refs.input()
 			node.focus()
 			node.value = node.value
 		}
@@ -42,7 +44,7 @@ class StringAttribute extends Component {
 
 	componentDidMount() {
 		if( this.state.editing ){
-			var node = this.refs.input.getDOMNode()
+			var node = this.refs.input()
 			node.focus()
 			node.value = node.value
 		}
@@ -67,6 +69,7 @@ class StringAttribute extends Component {
 		if( e.which == 13 )
 			this.setValue();
 	}
+	
 	toggleEditing(){
 		this.setState({ editing: !this.state.editing });
 	}

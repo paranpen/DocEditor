@@ -1,10 +1,15 @@
 import React, {Component} from 'react'
-import Freezer from 'freezer-js'
 import ObjectAttribute from './ObjectAttribute'
-import jsondoc from '../docStates/jsondoc'
+import jsonDocument from '../docModels/jsonDocument'
+import Freezer from 'freezer-js'
 
-var freezer = new Freezer({jsondoc: jsondoc})
+/* get the JSON document and make it immutable by Freezer */
+var freezer = new Freezer({jsondoc: jsonDocument})
 
+/* Container Component
+ * state: the root of document
+ * TEST if it re-renders the whole document
+ */
 class DocEditor extends Component {
   constructor() {
     super()
@@ -15,8 +20,8 @@ class DocEditor extends Component {
     return (
       <div className="jsonEditor">
         <pre> Copy a document here</pre>
-        <pre>{ JSON.stringify( this.state, null, ' ')}</pre>
-        <ObjectAttribute value={this.state} original={this.state} />
+        <pre>{ JSON.stringify( this.state.jsondoc, null, ' ')}</pre>
+        <ObjectAttribute value={this.state.jsondoc} original={this.state.jsondoc} />
       </div>
     )
   }

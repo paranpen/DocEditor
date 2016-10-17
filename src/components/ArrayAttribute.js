@@ -2,14 +2,16 @@
  * Component for editing an array.
  * @param  {FreezerNode} value The value of the array.
  * @param  {Mixed} original The value of the component it the original json.
+ * State: editing
+ * TEST if editing mode is working
  */
 import React, {Component} from 'react'
 import Attribute from './Attribute'
 import AttributeCreator from './AttributeCreator'
 
 class ArrayAttribute extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = { editing: false }
 	}
 	
@@ -43,6 +45,7 @@ class ArrayAttribute extends Component {
 			</span>)
 	}
 
+	/* Event Handler */
 	toggleEditing() {
 		this.setState({editing: !this.state.editing})
 	}

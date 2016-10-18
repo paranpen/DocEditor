@@ -40,8 +40,8 @@ class AttributeCreator extends Component {
 				{ attrName }
 				<select value={this.state.type} onChange={ this.changeType } ref="typeSelector">
 					<option value="string">String</option>
-					<option value="array">List</option>
-					<option value="object">Map</option>
+					<option value="array">Array</option>
+					<option value="object">Object</option>
 				</select>
 				<button onClick={ this.createAttributeFunc }>OK</button>,
 				<a href="#" className="cancelAttr" onClick={ this.handleCancel }>Cancel</a>
@@ -80,11 +80,16 @@ class AttributeCreator extends Component {
 	}
 
 	createAttributeFunc(){
+		let typeDefaultValues = {
+			string: '',
+			object: {},
+			array: []
+		}
 
 		this.setState({creating: false})
 
 		var parent = this.props.parent
-		var value = createAttribute.typeDefaultValues[ this.state.type ]
+		var value = typeDefaultValues[ this.state.type ]
 
 		if( parent.constructor === Array )
 			parent.push( value )

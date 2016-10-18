@@ -33,7 +33,7 @@ var guessType = function( value ) {
 
 var createAttribute = function( value, original, parent, key ) {
 	// Default values to initialize attributes
-	var typeDefaultValues = {
+	let typeDefaultValues = {
 		string: '',
 		object: {},
 		array: []
@@ -51,6 +51,7 @@ var createAttribute = function( value, original, parent, key ) {
 		original = typeDefaultValues[ type ]
 
 	return React.createElement( className, {
+		key: key,
 		value: value,
 		attrkey: typeof key != 'undefined' ? key : '',
 		parent: parent,

@@ -43,7 +43,7 @@ class ObjectAttribute extends Component {
 		)
 
 		return (<span className={ className }>
-				<span onClick={ this.toggleEditing } className="hashToggle">Attribute [{ keys.length }]</span>
+				<span onClick={ this.toggleEditing } className="hashToggle">Object [{ keys.length }]</span>
 				{openHash}
 			</span>
 		)

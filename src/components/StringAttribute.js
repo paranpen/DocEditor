@@ -31,7 +31,7 @@ class StringAttribute extends Component {
 		if( !this.state.editing )
 			return <span onClick={this.setEditMode} className={className}>{this.props.value}</span>
 
-		return <input value={this.props.value} onChange={this.updateValue} onBlur={this.setValue} ref="input" onKeyDown={this.handleKeyDown}/>
+		return <input value={this.state.value} onChange={this.updateValue} onBlur={this.setValue} ref="input" onKeyDown={this.handleKeyDown}/>
 	}
 
 	componentDidUpdate( prevProps, prevState ) {
